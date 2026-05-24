@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrchSec CLI — Automated Security Scanning for Agentic AI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+        header {
+            text-align: center;
+            padding: 4rem 0 2rem;
+            border-bottom: 1px solid #30363d;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            color: #58a6ff;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #8b949e;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .badges { margin: 1rem 0; }
+        .badges img { margin: 0 0.25rem; }
+        section { padding: 3rem 0; border-bottom: 1px solid #21262d; }
+        section:last-child { border-bottom: none; }
+        h2 { color: #58a6ff; margin-bottom: 1rem; font-size: 1.5rem; }
+        h3 { color: #f0f6fc; margin: 1.5rem 0 0.5rem; }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        .feature-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .feature-card h3 { margin-top: 0; color: #f0f6fc; }
+        .feature-card p { color: #8b949e; font-size: 0.9rem; }
+        code {
+            background: #1f2937;
+            color: #f0c674;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        pre {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+        pre code { background: transparent; padding: 0; }
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #484f58;
+            font-size: 0.9rem;
+        }
+        .btn {
+            display: inline-block;
+            background: #238636;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        .btn:hover { background: #2ea043; }
+        .architecture-diagram {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 2rem;
+            font-family: monospace;
+            white-space: pre;
+            color: #8b949e;
+            line-height: 1.8;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 OrchSec CLI</h1>
+            <p>Automated Security Scanning & Continuous Red Teaming for Agentic AI Applications</p>
+            <div class="badges">
+                <img src="https://img.shields.io/badge/Security-OWASP%20ASI%3A2026-red" alt="OWASP ASI:2026">
+                <img src="https://img.shields.io/badge/License-MIT-blue" alt="MIT License">
+                <img src="https://img.shields.io/badge/Status-Alpha-yellow" alt="Status: Alpha">
+            </div>
+            <a href="https://github.com/Orchsec/orchsec-cli" class="btn">View on GitHub →</a>
+        </header>
+
+        <section>
+            <h2>🛡️ Overview</h2>
+            <p>OrchSec is an automated security scanner and continuous penetration testing platform built explicitly for LLM agents, Model Context Protocol (MCP) servers, and autonomous AI applications.</p>
+            <p>Our core engine acts as an out-of-band offensive scanner. It programmatically ingests your agent's tool definitions, maps its decision and routing graphs, and executes targeted adversarial attack campaigns to expose critical data leaks, tool hijacking, and unauthorized API execution.</p>
+        </section>
+
+        <section>
+            <h2>🎯 Vulnerability Coverage</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Prompt Injection & Goal Hijacking</h3>
+                    <p>Scanning against indirect data poisoning vectors where malicious text or untrusted documents override system guidelines.</p>
+                    <code>OWASP ASI01</code>
+                </div>
+                <div class="feature-card">
+                    <h3>Tool Misuse & Privilege Escalation</h3>
+                    <p>Pentesting MCP tool configurations, unauthenticated STDIO channels, and over-permissive API credentials.</p>
+                    <code>OWASP ASI02/ASI03</code>
+                </div>
+                <div class="feature-card">
+                    <h3>Multi-Tenant Context Isolation</h3>
+                    <p>Continuous verification of agent memory pools, long-term state data, and vector indexing layers for tenant segregation.</p>
+                    <code>OWASP ASI06</code>
+                </div>
+                <div class="feature-card">
+                    <h3>Automated Tool Schema Audits</h3>
+                    <p>Parses execution nodes and builds adversarial test graphs to track cascading system failures automatically.</p>
+                    <code>Zero Boilerplate</code>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🏗️ Architecture</h2>
+            <div class="architecture-diagram">[ OrchSec Offensive Engine ]
+           │
+           ▼ (Targeted Vulnerability Scans)
+┌──────────────────────────────┐
+│     Target Staging API       │
+└──────────┬───────────────────┘
+           │
+           ▼ (Context Processing)
+┌──────────────────────────────┐
+│  Agent Orchestration Graph   │ ◄─── [ Poisoned Input / Vector DB Payloads ]
+└──────────┬───────────────────┘
+           │
+           ▼ (Parameter Tampering / Confused Deputy Attack)
+┌──────────────────────────────┐
+│  MCP Server / Backend API    │ ───► [ Hard Canary Token Exfiltration Proven ]
+└──────────────────────────────┘</div>
+            <p>OrchSec deploys unique, cryptographically signed canary tokens into sandbox datastores. A security flaw is flagged <em>only</em> when an architecture boundary is breached and a canary is recovered — ensuring zero false-positive logs.</p>
+        </section>
+
+        <section>
+            <h2>🚀 Quick Start</h2>
+            <pre><code># Clone the repository
+git clone https://github.com/Orchsec/orchsec-cli.git
+cd orchsec-cli
+
+# Review the configuration
+cat orchsec.config.yaml
+
+# Set your environment variables
+export STAGE_SEC_TOKEN="your-token-here"
+export ORCHSEC_CANARY_SEED="your-seed-here"
+
+# Run the scanner (coming soon)
+# orchsec scan --config orchsec.config.yaml</code></pre>
+        </section>
+
+        <div class="footer">
+            <p>© 2026 OrchSec Inc. — Building a safer future for autonomous AI systems.</p>
+            <p>Report vulnerabilities: <a href="mailto:security@orchsec.com" style="color: #58a6ff;">security@orchsec.com</a></p>
+        </div>
+    </div>
+</body>
+</html>
