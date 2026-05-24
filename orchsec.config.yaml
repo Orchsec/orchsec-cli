@@ -1,0 +1,24 @@
+version: "0.1.0"
+project: "orchsec-enterprise-agent"
+
+target:
+  endpoint: "https://api.staging.internal/v1/chat"
+  headers:
+    Authorization: "Bearer ${STAGE_SEC_TOKEN}"
+
+discovery:
+  schema_type: "mcp"
+  schema_path: "./config/mcp-tools.json"
+  auto_map_graph: true
+
+policy:
+  target_framework: "OWASP_ASI_2026"
+  scan_intensity: "aggressive"
+  canary_verification:
+    enabled: true
+    token_seed: "env://ORCHSEC_CANARY_SEED"
+
+remediation:
+  fail_build_on_critical: true
+  webhooks:
+    slack: "https://hooks.slack.com/services/${SLACK_ALERT_KEY}"
